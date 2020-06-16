@@ -10,7 +10,7 @@ let initialState = {
   photos: [],
 };
 
-const mainReducer = (state = initialState, action) => {
+const galleryReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PHOTOS:
       return {
@@ -58,4 +58,4 @@ export const getPhotosThunkCreator = (page) => async (dispatch) => {
   dispatch(isLoading(false));
 };
 
-export default mainReducer;
+export default galleryReducer;

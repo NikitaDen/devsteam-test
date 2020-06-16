@@ -1,9 +1,9 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleWare from "redux-thunk";
-import mainReducer from './main-reducer';
+import galleryReducer from './gallery-reducer';
 
 const reducers = combineReducers({
-  photos: mainReducer
+  photos: galleryReducer
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleWare));

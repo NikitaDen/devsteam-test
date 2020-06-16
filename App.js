@@ -12,16 +12,6 @@ import Photo from './components/Photo';
 
 const Stack = createStackNavigator();
 
-const screenStyle = {
-  headerStyle: {
-    backgroundColor: 'rgb(14, 119, 190)',
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
-  },
-};
-
 const App = () => {
   return (
     <Provider store={store}>
@@ -34,6 +24,16 @@ const App = () => {
       </NavigationContainer>
     </Provider>
   );
+};
+
+const screenStyle = {
+  headerStyle: {
+    backgroundColor: 'rgb(14, 119, 190)',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
 };
 
 export default App;

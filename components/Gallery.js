@@ -1,19 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import {getPhotosThunkCreator, setCurrentPage} from '../redux/main-reducer';
+import {getPhotosThunkCreator, setCurrentPage} from '../redux/gallery-reducer';
 import PhotoItem from './PhotoItem';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const Gallery = (props) => {
-  const [leftDisabled, setLeftDisabled] = useState(false);
+  const [leftDisabled, setLeftDisabled] = useState(true);
 
   useEffect(() => {
     props.getPhotosThunkCreator(props.currentPage);
-
-    if (props.currentPage <= 1) {
-      setLeftDisabled(true);
-    }
   }, []);
 
   useEffect(() => {
@@ -67,7 +63,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
   },
-  btnContainer: {flexDirection: 'row', justifyContent: 'space-between', padding: 20}
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20
+  }
 });
 
 const mapStateToProps = (state) => ({
