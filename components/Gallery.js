@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getPhotosThunkCreator, setCurrentPage} from '../redux/gallery-reducer';
 import PhotoItem from './PhotoItem';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import {currentPageSelector, isLoadingSelector, photosSelector} from '../selectors/gallery-selectors';
 
 const Gallery = (props) => {
   const [leftDisabled, setLeftDisabled] = useState(true);
@@ -71,9 +72,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => ({
-  photos: state.photos.photos,
-  currentPage: state.photos.currentPage,
-  isLoading: state.photos.isLoading,
+  photos: photosSelector(state),
+  currentPage: currentPageSelector(state),
+  isLoading: isLoadingSelector(state),
 });
 
 export default connect(mapStateToProps, {getPhotosThunkCreator, setCurrentPage})(Gallery);

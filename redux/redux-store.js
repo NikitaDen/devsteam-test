@@ -3,7 +3,7 @@ import thunkMiddleWare from "redux-thunk";
 import galleryReducer from './gallery-reducer';
 
 const reducers = combineReducers({
-  photos: galleryReducer
+  gallery: galleryReducer
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleWare));
